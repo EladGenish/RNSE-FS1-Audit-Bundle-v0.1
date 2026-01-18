@@ -1,6 +1,25 @@
 # RNSE-FS1-Audit-Bundle-v0.1
 Audit-grade, black-box verification bundle for RNSE boundary legibility under FS.1 (v0.1).
 
+**Architects:**
+- **Elad Genish**: RNSE Core Engine
+- **Meir Goldman**: Verification Contract Schema, FS.1 Rule
+
+## Package Contents
+- `MANIFEST.json`: Signed assertion with integrity hash.
+- `trace.bin`: Raw float64 array of the **Divergence (D)** metric.
+- `verify.py`: Independent auditor script.
+
+## Technical Specifications
+- **Metric**: $D[t]$ (Divergence / Description Length Proxy)
+- **Trace Format**: IEEE-754 Float64, Little Endian
+- **Boundary Rule**: `BDR_ROBUST_STEP_V0` (FS.1)
+
+## Verification
+```bash
+python3 verify.py MANIFEST.json trace.bin
+```
+
 RNSE Boundary Legibility — v0.1
 
 This repository contains a self-contained verification bundle demonstrating boundary legibility for RNSE under a strict FS.1-style audit contract.
